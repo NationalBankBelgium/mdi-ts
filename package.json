@@ -24,7 +24,7 @@
     "conventional-changelog-cli": "^5.0.0",
     "cz-customizable": "^7.3.0",
     "husky": "^9.1.7",
-    "release-it": "^18.1.2",
+    "release-it": "^19.0.6",
     "rimraf": "^6.0.1",
     "svg-to-ts": "^12.0.0"
   },
