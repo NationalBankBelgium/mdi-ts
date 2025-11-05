@@ -18,7 +18,7 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@deboxsoft/cpx": "^1.5.0",
-    "@mdi/svg": "^4.9.95",
+    "@mdi/svg": "^7.4.47",
     "@nationalbankbelgium/code-style": "^1.11.0",
     "commitizen": "^4.3.1",
     "conventional-changelog-cli": "^5.0.0",
