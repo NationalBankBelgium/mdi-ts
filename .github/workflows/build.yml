@@ -29,7 +29,7 @@ jobs:
             echo "IS_MAIN_ENVIRONMENT=1" >> $GITHUB_ENV
           else
             echo "IS_MAIN_ENVIRONMENT=0" >> $GITHUB_ENV
-          fi  
+          fi
 
       # See: https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v4
