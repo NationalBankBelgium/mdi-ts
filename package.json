@@ -1,6 +1,5 @@
 {
   "name": "@nationalbankbelgium/mdi-ts",
-  "private": true,
   "version": "0.0.1",
   "scripts": {
     "build": "npm run clean && npm run transform-icons",
