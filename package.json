@@ -2,15 +2,14 @@
   "name": "@nationalbankbelgium/mdi-ts",
   "version": "0.0.1",
   "scripts": {
-    "build": "npm run clean && npm run transform-icons && npm run prepare-library-metadata",
+    "build": "bash build.sh",
     "clean": "npx rimraf ./dist",
     "commit": "cz",
     "generate:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "generate:changelog-recent": "conventional-changelog -p angular | tail -n +3",
-    "publish": "cd dist/ && npm pack && cd ..",
     "prepare": "husky || true",
-    "prepare-library-metadata": "node prepare-metadata.js",
     "release": "release-it",
+    "release:publish": "bash ./release-publish.sh --trace",
     "transform-icons": "svg-to-ts-files"
   },
   "devDependencies": {
