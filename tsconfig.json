@@ -1,9 +1,0 @@
-{
-  "extends": "@nationalbankbelgium/code-style/tsconfig/5.1.x",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "./svg-icons",
-    "outDir": "./dist",
-    "incremental": false
-  }
-}
