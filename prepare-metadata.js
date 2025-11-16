@@ -62,6 +62,7 @@ const TARGET = path.join(ROOT, 'dist');
 const KEYS_TO_REMOVE = [
     'scripts',
     'devDependencies',
+    'config'
 ];
 
 const FILES_TO_COPY = ['README.md', 'LICENSE', 'NOTICE'];
