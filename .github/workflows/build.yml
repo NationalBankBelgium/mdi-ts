@@ -12,7 +12,7 @@ on:
 
 env:
   TZ: "Europe/Brussels"
-  MAIN_NODEJS: "20"
+  NODEJS_VERSION: "20"
   NPM_VERSION: "10.x"
   LOGS_DIR: /tmp/mdi-ts/logs
   LOGS_FILE: /tmp/mdi-ts/logs/build-perf.log
@@ -21,31 +21,27 @@ env:
 jobs:
   build:
     name: Build and Pack
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [ "20" ]
-        os: [ ubuntu-latest ]
-
+    runs-on: "ubuntu-latest"
     steps:
       - name: Set environment variable 'IS_MAIN_ENVIRONMENT'
         run: |
-          if [[ '${{ matrix.node_version }}' == '${{ env.MAIN_NODEJS }}' ]] && [[ '${{ matrix.os }}' == 'ubuntu-latest' ]]; then
+          if [[ '${{ matrix.node_version }}' == '${{ env.NODEJS_VERSION }}' ]] && [[ '${{ matrix.os }}' == 'ubuntu-latest' ]]; then
             echo "IS_MAIN_ENVIRONMENT=1" >> $GITHUB_ENV
           else
             echo "IS_MAIN_ENVIRONMENT=0" >> $GITHUB_ENV
           fi  
 
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+      # See: https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node_version }}
+      # See: https://github.com/marketplace/actions/setup-node-js-environment
+      - name: Setup Node.js ${{ env.NODEJS_VERSION }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: ${{ env.NODEJS_VERSION }}
 
+      # See: https://github.com/marketplace/actions/cache
+      # See doc: https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows
       - name: Cache node modules
         uses: actions/cache@v4
         env:
@@ -63,6 +59,9 @@ jobs:
           TAG_NAME=$(echo $GITHUB_REF | sed -n "s/^refs\/tags\/\(\S*\).*$/\1/p")
           echo "GH_ACTIONS_TAG=${TAG_NAME}" >> $GITHUB_ENV
 
+      - name: Install npm ${{ env.NPM_VERSION }}
+        run: npm i -g npm@${{ env.NPM_VERSION }}
+
       - name: List main variables
         run: |
           echo "Commit SHA  : ${GITHUB_SHA}"
@@ -77,9 +76,6 @@ jobs:
           echo "Main ENV    : ${{ env.IS_MAIN_ENVIRONMENT }}"
           NODE_VERSION="$(node -v)"
           echo "Node version: $NODE_VERSION"
-
-      - name: Install npm ${{ env.NPM_VERSION }}
-        run: npm i -g npm@${{ env.NPM_VERSION }}
 
       - name: Install dependencies
         run: npm ci
