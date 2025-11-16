@@ -3,10 +3,9 @@
   "dry-run": false,
   "verbose": false,
   "force": false,
+  "disable-metrics": true,
   "hooks": {
-    "after:bump": [
-      "npm run generate:changelog"
-    ]
+    "after:bump": "npm run generate:changelog"
   },
   "plugins": {
     "@release-it/conventional-changelog": {
@@ -25,9 +24,7 @@
     "tagName": "${version}",
     "tagAnnotation": "${version}",
     "push": true,
-    "pushArgs": [
-      "--follow-tags"
-    ],
+    "pushArgs": ["--follow-tags"],
     "pushRepo": "origin"
   },
   "npm": {
