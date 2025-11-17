@@ -1,0 +1,63 @@
+{
+  "name": "@nationalbankbelgium/mdi-ts",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "bash ./build.sh",
+    "commit": "cz",
+    "generate:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "generate:changelog-recent": "conventional-changelog -p angular | tail -n +3",
+    "prepare": "husky || true",
+    "prettier-check": "prettier \"**/*.{css,html,js,json,md,pcss,scss,ts,yml}\" --cache --write --html-whitespace-sensitivity strict",
+    "release": "release-it",
+    "release:publish": "bash ./release-publish.sh --trace",
+    "transform-icons": "svg-to-ts-files"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@deboxsoft/cpx": "^1.5.0",
+    "@mdi/svg": "4.9.95",
+    "@nationalbankbelgium/code-style": "^1.11.0",
+    "@release-it/conventional-changelog": "^9.0.4",
+    "commitizen": "^4.3.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "cz-customizable": "^7.3.0",
+    "husky": "^9.1.7",
+    "prettier": "~3.1.0",
+    "release-it": "^17.11.0",
+    "svg-to-ts": "^12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NationalBankBelgium/mdi-ts.git"
+  },
+  "keywords": [
+    "SVG",
+    "icons",
+    "library",
+    "mdi",
+    "typescript"
+  ],
+  "author": {
+    "email": "alexis.georges@nbb.be",
+    "name": "Alexis Georges",
+    "url": "https://www.nbb.be"
+  },
+  "contributors": [
+    {
+      "email": "dujacquier.nicolas@hotmail.com",
+      "name": "Nicolas Dujacquier",
+      "url": "https://github.com/DujacquierNicolas"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NationalBankBelgium/mdi-ts/issues"
+  },
+  "homepage": "https://github.com/NationalBankBelgium/mdi-ts#readme",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}
