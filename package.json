@@ -1,6 +1,6 @@
 {
   "name": "@nationalbankbelgium/mdi-ts",
-  "version": "0.0.1",
+  "version": "4.9.95",
   "scripts": {
     "build": "bash ./build.sh",
     "commit": "cz",
