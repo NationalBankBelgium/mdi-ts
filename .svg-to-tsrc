@@ -36,7 +36,7 @@
            "removeUnknownsAndDefaults",
            "removeNonInheritableGroupAttrs",
            "removeUselessStrokeAndFill",
-           "removeViewBox",
+           "removeDimensions",
            "cleanupEnableBackground",
            "removeHiddenElems",
            "removeEmptyText",
