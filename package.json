@@ -18,7 +18,7 @@
     "@deboxsoft/cpx": "^1.5.0",
     "@mdi/svg": "4.9.95",
     "@nationalbankbelgium/code-style": "^1.11.0",
-    "@release-it/conventional-changelog": "^9.0.4",
+    "@release-it/conventional-changelog": "^10.0.2",
     "commitizen": "^4.3.1",
     "conventional-changelog-cli": "^5.0.0",
     "cz-customizable": "^7.3.0",
